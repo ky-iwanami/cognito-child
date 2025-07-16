@@ -6,15 +6,20 @@ import { Amplify } from "aws-amplify";
 import outputs from "../amplify_outputs.json";
 
 // サンドボックス環境のみMSWを有効にする
-if (outputs.custom.isSandbox) {
-  const { setupMSW } = await import("./mocks/browser");
-  await setupMSW();
-}
+const setupMocks = async () => {
+  if (outputs.custom.isSandbox) {
+    const { setupMSW } = await import("./mocks/browser");
+    await setupMSW();
+  }
+  
+  Amplify.configure(outputs);
 
-Amplify.configure(outputs);
+  ReactDOM.createRoot(document.getElementById("root")!).render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+};
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// 関数を実行
+setupMocks();
