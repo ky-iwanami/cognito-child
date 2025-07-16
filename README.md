@@ -23,3 +23,9 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 ## License
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
+
+## サンドボックス起動方法
+以下のコマンドを実行してサンドボックスを起動します。
+環境変数が自動で読み込まれます。
+
+npx dotenvx run --env-file=.env.local -- ampx sandbox --profile プロファイル名
