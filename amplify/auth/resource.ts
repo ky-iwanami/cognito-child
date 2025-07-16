@@ -7,11 +7,11 @@ import { referenceAuth } from "@aws-amplify/backend";
  * @see https://docs.amplify.aws/react/build-a-backend/auth/use-existing-cognito-resources/
  */
 
-const USER_POOL_ID = process.env.REACT_APP_USER_POOL_ID;
-const IDENTITY_POOL_ID = process.env.REACT_APP_IDENTITY_POOL_ID;
-const AUTH_ROLE_ARN = process.env.REACT_APP_AUTH_ROLE_ARN;
-const UNAUTH_ROLE_ARN = process.env.REACT_APP_UNAUTH_ROLE_ARN;
-const USER_POOL_CLIENT_ID = process.env.REACT_APP_USER_POOL_CLIENT_ID;
+const USER_POOL_ID = import.meta.env.VITE_USER_POOL_ID;
+const IDENTITY_POOL_ID = import.meta.env.VITE_IDENTITY_POOL_ID;
+const AUTH_ROLE_ARN = import.meta.env.VITE_AUTH_ROLE_ARN;
+const UNAUTH_ROLE_ARN = import.meta.env.VITE_UNAUTH_ROLE_ARN;
+const USER_POOL_CLIENT_ID = import.meta.env.VITE_USER_POOL_CLIENT_ID;
 
 if (!USER_POOL_ID || !IDENTITY_POOL_ID || !AUTH_ROLE_ARN || !UNAUTH_ROLE_ARN || !USER_POOL_CLIENT_ID) {
   throw new Error("Missing environment variables");
