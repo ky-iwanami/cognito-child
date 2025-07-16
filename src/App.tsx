@@ -12,6 +12,7 @@ import {
   signOut,
 } from "aws-amplify/auth";
 import { parseAmplifyConfig } from "aws-amplify/utils";
+import packageJson from "../package.json";
 
 const origin = `${window.location.origin}/`;
 outputs.auth.oauth = {
@@ -71,6 +72,7 @@ function App() {
                   const idToken = session.tokens?.idToken?.toString();
                   return {
                     Authorization: `Bearer ${idToken}`,
+                    "X-App-Name": packageJson.name,
                   };
                 },
               },
