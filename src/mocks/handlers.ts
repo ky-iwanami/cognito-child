@@ -1,23 +1,5 @@
 import { http, HttpResponse } from 'msw';
-
-// モックデータ
-const mockTodos = [
-  {
-    id: '1',
-    content: 'MSWモックTodo 1',
-    createdAt: new Date().toISOString()
-  },
-  {
-    id: '2',
-    content: 'MSWモックTodo 2',
-    createdAt: new Date().toISOString()
-  },
-  {
-    id: '3',
-    content: 'MSWモックTodo 3',
-    createdAt: new Date().toISOString()
-  }
-];
+import mockTodos from './data/todos.json';
 
 export const handlers = [
   // GET /todos エンドポイントのモック
